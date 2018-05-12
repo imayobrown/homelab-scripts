@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-mkdir /home/shared/movies/
+mkdir -p /home/shared/movies/
