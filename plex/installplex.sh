@@ -8,7 +8,7 @@ PLEX_MEDIA_SERVER_RPM="plexmediaserver-1.13.0.5023-31d3c0c65.x86_64.rpm"
 PLEX_MEDIA_SERVER_FIREWALL_SERVICE="./plexmediaserver.xml"
 PLEX_MEDIA_SERVER_SYSTEMD_SERVICE="plexmediaserver.service"
 
-DOWNLOADS_DIR="~/Downloads"
+DOWNLOADS_DIR=~/Downloads
 
 # Download plex
 echo "Downloading plexmediaserver..."
@@ -23,8 +23,9 @@ systemctl stop $PLEX_MEDIA_SERVER_SYSTEMD_SERVICE
 # Install plexmediaserver service for firewalld
 echo "Installing plex media server service for into firewalld..."
 cp $PLEX_MEDIA_SERVER_FIREWALL_SERVICE /etc/firewalld/services/$PLEX_MEDIA_SERVER_FIREWALL_SERVICE
+firewall-cmd --reload # Reload to pick up service definition
 firewall-cmd --permanent --zone=public --add-service=plexmediaserver
-firewall-cmd --reload
+firewall-cmd --reload # Reload to pick up service added to zone
 
 echo "Enabling and starting plex media server..."
 systemctl enable $PLEX_MEDIA_SERVER_SYSTEMD_SERVICE
