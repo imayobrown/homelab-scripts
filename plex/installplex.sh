@@ -10,17 +10,20 @@ PLEX_MEDIA_SERVER_SYSTEMD_SERVICE="plexmediaserver.service"
 
 DOWNLOADS_DIR=~/Downloads
 
-# Download plex
-echo "Downloading plexmediaserver..."
-mkdir $DOWNLOADS_DIR
-curl https://downloads.plex.tv/plex-media-server/2.13.0.5023-31d3c0c65/$PLEX_MEDIA_SERVER_RPM --output $DOWNLOADS_DIR/$PLEX_MEDIA_SERVER_RPM
+echo "Installing wget..."
+yum install -y wget
 
-# Install plex using rpm
+echo "Creating $DOWNLOADS_DIR directory..."
+mkdir $DOWNLOADS_DIR
+
+echo "Downloading plexmediaserver..."
+wget -P $DOWNLOADS_DIR https://downloads.plex.tv/plex-media-server/2.13.0.5023-31d3c0c65/$PLEX_MEDIA_SERVER_RPM
+
+echo "Installing plex from the rpm $PLEX_MEDIA_SERVER_RPM..."
 rpm -i $DOWNLOADS_DIR/$PLEX_MEDIA_SERVER_RPM
 
 systemctl stop $PLEX_MEDIA_SERVER_SYSTEMD_SERVICE
 
-# Install plexmediaserver service for firewalld
 echo "Installing plex media server service for into firewalld..."
 cp $PLEX_MEDIA_SERVER_FIREWALL_SERVICE /etc/firewalld/services/$PLEX_MEDIA_SERVER_FIREWALL_SERVICE
 firewall-cmd --reload # Reload to pick up service definition
