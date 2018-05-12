@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service version="1.0">
+  <short>plexmediaserver</short>
+  <description>Plex TV Media Server</description>
+  <port port="1900" protocol="udp"/>
+  <port port="5353" protocol="udp"/>
+  <port port="32400" protocol="tcp"/>
+  <port port="32410" protocol="udp"/>
+  <port port="32412" protocol="udp"/>
+  <port port="32413" protocol="udp"/>
+  <port port="32414" protocol="udp"/>
+  <port port="32469" protocol="tcp"/>
+</service>
