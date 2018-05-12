@@ -17,7 +17,7 @@ echo "Creating $DOWNLOADS_DIR directory..."
 mkdir $DOWNLOADS_DIR
 
 echo "Downloading plexmediaserver..."
-wget -P $DOWNLOADS_DIR https://downloads.plex.tv/plex-media-server/2.13.0.5023-31d3c0c65/$PLEX_MEDIA_SERVER_RPM
+wget -P $DOWNLOADS_DIR https://downloads.plex.tv/plex-media-server/1.13.0.5023-31d3c0c65/$PLEX_MEDIA_SERVER_RPM
 
 echo "Installing plex from the rpm $PLEX_MEDIA_SERVER_RPM..."
 rpm -i $DOWNLOADS_DIR/$PLEX_MEDIA_SERVER_RPM
