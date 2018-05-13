@@ -37,4 +37,4 @@ systemctl start $PLEX_MEDIA_SERVER_SYSTEMD_SERVICE
 # Run the following command from the system you are remoting into the server from
 # ssh root@<serverip> -L 8888:localhost:32400
 
-# And then go to http://<serverip>:8888/manage to login and manage the server
+# And then go to http://localhost:8888/manage to login and manage the server
