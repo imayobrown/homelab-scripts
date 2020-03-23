@@ -4,4 +4,4 @@ Scripts for the homelab setup
 # Testing
 
 * first thing
-* * sub-first thing
+  * sub-first thing
